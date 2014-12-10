@@ -17,7 +17,7 @@ var locations = [
 	'San Marcos,TX',
 	'Temple,TX',
 	'Chickasha,OK',
-	'ElReno,OK',
+	'El Reno,OK',
 	'Guthrie,OK',
 	'Harrah,OK',
 	'Kingfisher,OK',

@@ -15,7 +15,15 @@ var locations = [
 	'New Braunfels,TX',
 	'San Antonio,TX',
 	'San Marcos,TX',
-	'Temple,TX'
+	'Temple,TX',
+	'Chickasha,OK',
+	'ElReno,OK',
+	'Guthrie,OK',
+	'Harrah,OK',
+	'Kingfisher,OK',
+	'Moore,OK',
+	'Norman,OK',
+	'Oklahoma City,OK',
 ];
 setInterval(function(){
         for (var i = 0;i < locations.length;i++){

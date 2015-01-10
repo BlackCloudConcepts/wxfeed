@@ -25,11 +25,20 @@ var locations = [
 	{city:'Norman,OK',region:'OK'},
 	{city:'Oklahoma City,OK',region:'OK'}
 ];
+
+// get weather initially and then every 60 seconds
+queryWeather();
 setInterval(function(){
-        for (var i = 0;i < locations.length;i++){
+       queryWeather();
+}, 60000);
+
+function queryWeather(){
+	var time = new Date();
+	console.log('LOG: QUERY WEATHER DATA '+time.toLocaleDateString()+" "+time.toLocaleTimeString());
+	for (var i = 0;i < locations.length;i++){
                 getWeatherData(locations[i]);
         }
-}, 10000);
+}
 
 function getWeatherData(loc){
         var options = {
@@ -43,6 +52,8 @@ function getWeatherData(loc){
 			data.region = loc.region;
                         var obj = {};
                         obj['_'+loc.city] = data;
+			// issue with Moore, OK returned as Oklahoma City by name
+			obj['_'+loc.city].name = loc.city.split(',')[0];
                         dataRef.update(obj);
                 }
         })

@@ -5,7 +5,7 @@ var dataRef = new Firebase('https://resplendent-heat-1209.firebaseio.com/wx/');
 var locations = [
 	{city:'Austin,TX',region:'TX',id:4671654},
 	{city:'Buda,TX',region:'TX',id:4050880},
-	{city:'Burnet,TX',region:'TX',id:4709090},
+	{city:'Burnet,TX',region:'TX',id:4677592},
 	{city:'Dripping Springs,TX',region:'TX',id:4686903},
 	{city:'Fredericksburg,TX',region:'TX',id:4692279},
 	{city:'Georgetown,TX',region:'TX',id:4693342},

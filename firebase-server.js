@@ -26,6 +26,69 @@ var locations = [
 	{city:'Oklahoma City,OK',region:'OK',id:4544349}
 ];
 
+var extA = [
+	{city:'Abilene,TX',region:'TX',id:4669635},
+	{city:'Amarillo,TX',region:'TX',id:5516233},
+	{city:'Beaumont,TX',region:'TX',id:4672989},
+	{city:'Brady,TX',region:'TX',id:4676032},
+	{city:'Brownwood,TX',region:'TX',id:4676798},
+	{city:'College Station,TX',region:'TX',id:4682464},
+	{city:'Colorado City,TX',region:'TX',id:5519254},
+	{city:'Dallas,TX',region:'TX',id:4684888},
+	{city:'Eldorado,TX',region:'TX',id:5521036},
+	{city:'Fort Stockton,TX',region:'TX',id:5521746},
+	{city:'Graham,TX',region:'TX',id:4694420},
+	{city:'Houston,TX',region:'TX',id:4699066},
+	{city:'Huntsville,TX',region:'TX',id:4699540},
+	{city:'Longview,TX',region:'TX',id:4707814}
+];
+
+var extB = [
+	{city:'Lubbock,TX',region:'TX',id:5525577},
+	{city:'Mason,TX',region:'TX',id:4709501},
+	{city:'Menard,TX',region:'TX',id:4710697},
+	{city:'Midland,TX',region:'TX',id:5526337},
+	{city:'Nacagdoches,TX',region:'TX',id:4713735},
+	{city:'Palestine,TX',region:'TX',id:4717232},
+	{city:'Plainview,TX',region:'TX',id:5528450},
+	{city:'San Angelo,TX',region:'TX',id:5530022},
+	{city:'San Saba,TX',region:'TX',id:4726582},
+	{city:'Sonora,TX',region:'TX',id:5531255},
+	{city:'Stephenville,TX',region:'TX',id:4734350},
+	{city:'Waco,TX',region:'TX',id:4739526},
+	{city:'Wichita Falls,TX',region:'TX',id:4741752}
+];
+
+var extC = [
+	{city:'Ada,OK',region:'OK',id:4529096},
+	{city:'Altus,OK',region:'OK',id:4529292},
+	{city:'Alva,OK',region:'OK',id:4529308},
+	{city:'Ardmore,OK',region:'OK',id:4529469},
+	{city:'Bartlesville,OK',region:'OK',id:4529987},
+	{city:'Clinton,OK',region:'OK',id:4534117},
+	{city:'Cushing,OK',region:'OK',id:4552215},
+	{city:'Duncan,OK',region:'OK',id:4535389},
+	{city:'Durant,OK',region:'OK',id:4535414},
+	{city:'Elk City,OK',region:'OK',id:4535823},
+	{city:'Enid,OK',region:'OK',id:4535961}
+];
+
+var extD = [
+	{city:'Henryetta,OK',region:'OK',id:4538577},
+	{city:'Hugo,OK',region:'OK',id:4539145},
+	{city:'Lawton,OK',region:'OK',id:4540737},
+	{city:'McAlester,OK',region:'OK',id:4542367},
+	{city:'Muskogee,OK',region:'OK',id:4543338},
+	{city:'Pauls Valley,OK',region:'OK',id:4547690},
+	{city:'Ponca City,OK',region:'OK',id:4548267},
+	{city:'Poteau,OK',region:'OK',id:4548233},
+	{city:'Stigler,OK',region:'OK',id:4552206},
+	{city:'Tulsa,OK',region:'OK',id:4553433},
+	{city:'Woodward,OK',region:'OK',id:4556050},
+	{city:'Vinita,OK',region:'OK',id:4538126}
+];
+
+
 // get weather initially and then every 60 seconds
 queryWeather();
 setInterval(function(){
@@ -46,6 +109,20 @@ function queryWeather(){
 
 	// batch
 	getWeatherDataBatch(locations);
+	setTimeout(function(){
+		getWeatherDataBatch(extA);
+	}, 10000);
+	setTimeout(function(){
+		getWeatherDataBatch(extB);
+	}, 20000);
+	setTimeout(function(){
+		getWeatherDataBatch(extC);
+	}, 30000);
+	setTimeout(function(){
+		getWeatherDataBatch(extD);
+	}, 40000);
+
+
 }
 
 // -- function to retrieve and emit data updates on an individual basis
@@ -84,7 +161,7 @@ function getWeatherDataBatch(loc){
     		objLookup[loc[i].id] = loc[i];
 	}
 	strIds = strIds.substring(0,strIds.length-1);
-
+	
 	var options = {
                 url: 'http://api.openweathermap.org/data/2.5/group?id='+strIds+'&APPID=4ad88837f1ea247954d4011aac2e4c9c',
                 method: 'GET'
